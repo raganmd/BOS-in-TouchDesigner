@@ -9,4 +9,4 @@ For TouchDesigner programers who are accostomed to the nodal environment of TD, 
 
 Here you'll find the incredible examples made by Patricio and Jen ported to the TouchDesigner environment. There are some differences here, and I'll do my best to help provide some clarity about where those come from. 
 
-![Touch Screen Shot](https://github.com/raganmd/BOS-in-TouchDesigner/blob/master/repo-assets/BOS-screen-shot.PNG?raw=true)
+![Touch Screen Shot](https://raw.githubusercontent.com/raganmd/BOS-in-TouchDesigner/master/repo-assets/BOS-screen-shot.PNG)
