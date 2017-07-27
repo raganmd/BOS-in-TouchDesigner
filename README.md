@@ -1,6 +1,5 @@
 # BOS-in-TouchDesigner
 
-## Contributing Programers / Artists ##
 **Matthew Ragan** |[ matthewragan.com ](http://matthewragan.com) 
 
 I can't say enough good things about [The Book of Shaders](https://thebookofshaders.com/) by  [Patricio Gonzalez Vivo](http://patriciogonzalezvivo.com/) & [Jen Lowe](http://jenlowe.net/). If you're looking to get a handle on how to write shaders, or find some inspiration this is an incredible resource.  
