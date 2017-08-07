@@ -32,14 +32,23 @@ float box(vec2 st, vec2 size){
 }
 
 float hex(vec2 st, bool a, bool b, bool c, bool d, bool e, bool f){
+    
+    if(st.x >= 0.5){
+    	st.x  	= -st.x;
+    }
+    else{
+    	st.x 	= st.x;
+    }
     st = st*vec2(2.,6.);
 
     vec2 fpos = fract(st);
     vec2 ipos = floor(st);
 
-    if (ipos.x == 1.0) fpos.x = 1.-fpos.x;
+
+    //if (ipos.x == 1.0) fpos.x = 1.-fpos.x;
+
     if (ipos.y < 1.0){
-        return a? box(fpos-vec2(0.03,0.), vec2(1.)) : box(fpos, vec2(0.84,1.));
+        return a? box(fpos-vec2(0.05,0.), vec2(1.)) : box(fpos, vec2(0.84,1.));
     } else if (ipos.y < 2.0){
         return b? box(fpos-vec2(0.03,0.), vec2(1.)) : box(fpos, vec2(0.84,1.));
     } else if (ipos.y < 3.0){
@@ -110,6 +119,7 @@ float snoise(vec3 p) {
 
     return dot(d, vec4(52.0));
 }
+
 out vec4 fragColor;
 void main()
 {
@@ -122,13 +132,13 @@ void main()
 	// here gl_FragCoord provides the pixel value, and uTD2DInfos[0].res.zw
 	// provides the xy resolution of our first input.
 	vec2 st 		= vUV.st;
-
+	st.y 			*= uTD2DInfos[0].res.w / uTD2DInfos[0].res.z;
     vec3 color      = vec3(0.0);
     float t         = u_time*0.5;
 
     float df        = 1.0;
-    df              = mix(hex(st,t),hex(st,t+1.),fract(t));
-    df              += snoise(vec3(st*75.,t*0.1))*0.03;
+	df              = mix(hex(st,t),hex(st,t+1.),fract(t));
+	df              += snoise(vec3(st*75.,t*0.1))*0.03;
 
     color           = vec3( mix( vec3(0.0), vec3(1.0), step(0.7, df) ) );
 
